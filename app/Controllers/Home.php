@@ -6,6 +6,10 @@ class Home extends BaseController
 {
     public function index()
     {
-        return view('welcome_message');
+        $data = [
+            'title' => 'Musician: Solusi latihan bermusik murah dan nyaman'
+        ];
+
+        return view('home', $data);
     }
 }
