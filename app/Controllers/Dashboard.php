@@ -12,7 +12,7 @@ class Dashboard extends BaseController
             'title' => 'Dashboard | Musician: Solusi latihan bermusik murah dan nyaman'
         ];
 
-        return view('dashboard', $data);
+        return view('v_dashboard', $data);
     }
 
     private function isLoggedIn() : bool

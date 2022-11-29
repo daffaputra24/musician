@@ -43,12 +43,24 @@ $routes->group('register', function($routes){
 $routes->group('login', function ($routes) {
     $routes->get('/', 'LoginController::index');
     $routes->post('/', 'LoginController::login');
+
 });
 $routes->group('logout', function ($routes) {
     $routes->get('/', 'LogoutController::index');
 });
-
 $routes->get('/dashboard', 'Dashboard::index');
+$routes->get('/barang', 'barang::index');
+$routes->get('/kategori', 'kategori::index');
+$routes->get('/operator', 'operator::index');
+$routes->get('/transaksi/form_transaksi', 'transaksi::index');
+$routes->get('/transaksi/laporan', 'transaksi::laporan');
+$routes->get('/barang/post', 'barang::post');
+$routes->post('/barang/post', 'barang::handleTambahRuangan');
+$routes->get('/kategori/post', 'kategori::post');
+$routes->post('/kategori/post', 'kategori::handleTambahKategori');
+$routes->get('/operator/post', 'operator::post');
+$routes->post('/operator/post', 'operator::handleTambahOperator');
+$routes->post('/transaksi', 'transaksi::handleTambahTransaksi');
 
 /*
  * --------------------------------------------------------------------
