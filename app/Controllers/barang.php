@@ -57,38 +57,11 @@ class Barang extends BaseController{
             $data = [
                 'kategori' => $kategori->tampilkan_data()
             ];
-            // ]=  $this->model_kategori->tampilkan_data()->result();
-            //$this->load->view('barang/form_input',$data);
             return view('barang/form_input',$data);
-            // template->load('template','barang/form_input',$data);
         }
     }
     
     
-    public function edit()
-    {
-       if(isset($_POST['submit'])){
-            // proses barang
-            $id         =   $this->input->post('id');
-            $nama       =   $this->input->post('nama_barang');
-            $kategori   =   $this->input->post('kategori');
-           // $harga      =   $this->input->post('harga');
-            $data       = array('nama_barang'=>$nama,
-                                'kategori_id'=>$kategori,
-                              //  'harga'=>$harga
-                            );
-            $this->model_barang->edit($data,$id);
-            redirect('barang');
-        }
-        else{
-            $id=  $this->uri->segment(3);
-            $this->load->model('model_kategori');
-            $data['kategori']   =  $this->model_kategori->tampilkan_data()->result();
-            $data['record']     =  $this->model_barang->get_one($id)->row_array();
-            //$this->load->view('barang/form_edit',$data);
-            $this->template->load('template','barang/form_edit',$data);
-        }
-    }
     
     
     public function editBarang($barang_id)
@@ -113,7 +86,7 @@ class Barang extends BaseController{
             'kategori_id' => $barangData['kategori'],
             'nama_barang' => $barangData['nama_barang'],
         ];
-        dd($data);
+        // dd($data);
         $barangModel->save($barangData);
         return redirect()->to('/barang');
     }
