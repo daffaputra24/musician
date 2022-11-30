@@ -107,9 +107,10 @@ class Barang extends BaseController{
     public function handleEditBarang() {
         $barangModel = new model_barang();
         $barangData = $this->request->getPost();
+        // dd($barangData);
         $data = [
             'barang_id' => $barangData['barang_id'],
-            'kategori_id' => $barangData['kategori_id'],
+            'kategori_id' => $barangData['kategori'],
             'nama_barang' => $barangData['nama_barang'],
         ];
         dd($data);
