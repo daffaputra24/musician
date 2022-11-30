@@ -91,10 +91,35 @@ class Barang extends BaseController{
     }
     
     
-    public function delete()
+    public function editBarang($barang_id)
     {
-        $id=  $this->uri->segment(3);
-        $this->model_barang->delete($id);
-        redirect('barang');
+            $barang = new model_barang();
+            $kategori = new model_kategori();
+            
+            $data = [
+                'barang' => $barang->cariStudio($barang_id)[0],
+                'kategori' => $kategori->findAll()
+            ];
+            // dd($data);
+            return view('barang/form_edit', $data);          
+    }
+
+    public function handleEditBarang() {
+        $barangModel = new model_barang();
+        $barangData = $this->request->getPost();
+        $data = [
+            'barang_id' => $barangData['barang_id'],
+            'kategori_id' => $barangData['kategori_id'],
+            'nama_barang' => $barangData['nama_barang'],
+        ];
+        dd($data);
+        $barangModel->save($barangData);
+        return redirect()->to('/barang');
+    }
+    
+    public function handleDeleteBarang($barang_id) {
+            (new model_barang)->delete($barang_id);
+            return redirect()->to('/barang');
+        
     }
 }

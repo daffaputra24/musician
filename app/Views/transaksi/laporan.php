@@ -9,25 +9,7 @@
                 </div> 
                 <!-- /. ROW  -->
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <?php echo form_open('transaksi/laporan', array('class'=>'form-inline')); ?>
-                                    <div class="form-group">
-                                        <label for="exampleInputName2">Tanggal</label>
-                                        <input type="text" name="tanggal1" class="form-control" placeholder="Tanggal Mulai">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail2"> - </label>
-                                        <input type="text" name="tanggal2" class="form-control" placeholder="Tanggal Selesai">
-                                    </div>
-                                    <button class="btn btn-primary btn-sm" type="submit" name="submit">Tampilkan</button>
-                                </form>
-                            </div>
-                        </div>
-                        <!-- /. PANEL  -->
-                    </div>
+                
 
 
                     <div class="col-md-12">

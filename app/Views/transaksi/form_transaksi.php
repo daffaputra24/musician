@@ -39,7 +39,7 @@
                                     </div>
                                 </form>
                                 <datalist id="barang">
-                                    <?php foreach ($transaksi as $b) {?>
+                                    <?php foreach ($barang as $b) {?>
                                         <option value= <?= $b['nama_barang'];?>> <?php echo $b['nama_kategori']; ?> </option>
                                     <?php } ?>
                                 </datalist>

@@ -13,28 +13,22 @@
                     <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <?php echo form_open('barang/edit'); ?>
-                                <input type="hidden" name="id" value="<?php echo $record['barang_id']?>">
+                                <form method="post" action="/barang/edit">
+                                <input type="hidden" name="barang_id" value="<?= $barang['barang_id']?>">
                                 <div class="form-group">
                                     <label>No. Studio (lantai. )</label>
-                                    <input class="form-control" name="nama_barang" value="<?php echo $record['nama_barang']?>">
+                                    <input class="form-control" name="nama_barang" value="<?= $barang['nama_barang']?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Nama Studio</label>
-                                    <select name="kategori" class="form-control">
-                                        <?php foreach ($kategori as $k) {
-                                            echo "<option value='$k->kategori_id'";
-                                            echo $record['kategori_id']==$k->kategori_id?'selected':'';
-                                            echo">$k->nama_kategori</option>";
-                                        } ?>
+                                    <select name="kategori_id" class="form-control">
+                                    <?php foreach ($kategori as $k) {?>
+                                            <option value="<?= $k['kategori_id'];?>"> <?= $k['nama_kategori']; ?> </option>
+                                        <?php } ?>
                                     </select>
                                 </div>
-                                <!-- <div class="form-group">
-                                    <label>Harga Sewa Per Hari</label>
-                                    <input class="form-control" name="harga" value="<?php echo $record['harga']?>">
-                                </div> -->
 
-                                <button type="submit" name="submit" class="btn btn-primary btn-sm">Update</button> | 
+                                <button type="submit" class="btn btn-primary btn-sm">Update</button> | 
                                 <?php echo anchor('barang','Kembali',array('class'=>'btn btn-danger btn-sm'))?>
                                 </form>
                             </div>

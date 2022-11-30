@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 class Model_kategori extends Model{
 
     protected $table = 'kategori_barang';
-    protected $primary = 'kategori_id';
+    protected $primaryKey = 'kategori_id';
     protected $protectFields = false;
     protected $useTimeStamps = true;
     protected $createdField = 'created_at';
@@ -39,21 +39,9 @@ class Model_kategori extends Model{
     }
     
     
-    function edit()
-    {
-        $data=array(
-           'nama_kategori'=>  $this->input->post('kategori'),
-           'harga'  =>  $this->input->post('harga')
-                    );
-        $this->db->where('kategori_id',$this->input->post('id'));
-        $this->db->update('kategori_barang',$data);
-    }
     
-    function get_one($id)
-    {
-        $param  =   array('kategori_id'=>$id);
-        return $this->db->get_where('kategori_barang',$param);
-    }
+    
+    
     
     
     // function delete($id)

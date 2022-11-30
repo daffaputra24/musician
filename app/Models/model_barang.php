@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class model_barang extends Model{
 
     protected $table = 'barang';
-    protected $primary = 'barang_id';
+    protected $primaryKey = 'barang_id';
     protected $protectFields = false;
     protected $useTimeStamps = true;
     protected $createdField = 'created_at';
@@ -25,7 +25,14 @@ class model_barang extends Model{
         $query = $builder->get()->getResultArray();
         return $query;
     }
-
+    
+    public function cariStudio($barang_id)
+    {
+        $builder = $this->db->table('kategori_barang');
+        $builder->join('barang', 'kategori_barang.kategori_id = barang.kategori_id')->where('barang_id',$barang_id);
+        $query = $builder->get()->getResultArray();
+        return $query;
+    }
 
 
     public function post($data)

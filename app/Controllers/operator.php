@@ -58,41 +58,35 @@ class operator extends BaseController{
         }
     }
     
-    public function edit()
+    public function editOperator($operator_id)
     {
-        if(isset($_POST['submit'])){
-            // proses kategori
-            $id         =  $this->input->post('id',true);
-            $nama       =  $this->input->post('nama',true);
-            $username   =  $this->input->post('username',true);
-            $password   =  $this->input->post('password',true);
-            if(empty($password)){
-                 $data  =  array(   'nama_lengkap'=>$nama,
-                                    'username'=>$username);
-            }
-            else{
-                  $data =  array(   'nama_lengkap'=>$nama,
-                                    'username'=>$username,
-                                    'password'=>md5($password));
-            }
-             $this->db->where('operator_id',$id);
-             $this->db->update('operator',$data);
-             redirect('operator');
-        }
-        else{
-            $id=  $this->uri->segment(3);
-            $data['record']=  $this->model_operator->get_one($id)->row_array();
-            //$this->load->view('operator/form_edit',$data);
-            $this->template->load('template','operator/form_edit',$data);
-        }
+            $operator = new model_operator();
+            
+            $data = [
+                'operator' => $operator->where('operator_id', $operator_id)->first()
+            ];
+            // dd($data);
+            return view('operator/form_edit', $data);          
+    }
+
+    public function handleEditOperator() {
+        $operatorModel = new model_operator();
+        $operatorData = $this->request->getPost();
+        // dd($operatorData);
+        $data = [
+            'operator_id' => $operatorData['operator_id'],
+            'nama_lengkap' => $operatorData['nama'],
+            'username' => $operatorData['username'],
+            'password' => $operatorData['password']
+        ];
+        // dd($data);
+        $operatorModel->save($data);
+        return redirect()->to('/operator');
     }
     
-    
-    public function delete()
-    {
-        $id=  $this->uri->segment(3);
-        $this->db->where('operator_id',$id);
-        $this->db->delete('operator');
-        redirect('operator');
+    public function handleDeleteOperator($operator_id) {
+            (new model_operator)->delete($operator_id);
+            return redirect()->to('/operator');
+        
     }
 }

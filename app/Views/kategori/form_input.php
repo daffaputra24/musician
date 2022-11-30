@@ -16,7 +16,7 @@
                                 <?php echo form_open('kategori/post'); ?>
                                 <div class="form-group"> 
                                     <label>Nama Studio</label>
-                                    <input type="text" name="kategori" class="form-control" placeholder="Jenis Studio">
+                                    <input type="text" name="kategori" class="form-control" placeholder="Nama">
                                 </div>
                                 <div class="form-group"> 
                                     <label>Harga Sewa Studio</label>

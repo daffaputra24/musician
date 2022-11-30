@@ -33,8 +33,10 @@
                                                 <td><?php echo $r['nama_kategori'] ?></td>
                                                 <td>Rp. <?php echo number_format ($r['harga'],2) ?></td>
                                                 <td class="center">
-                                                    <?php echo anchor('kategori/edit/'.$r['kategori_id'],'Edit'); ?> | 
-                                                    <?php echo anchor('kategori/delete/'.$r['kategori_id'],'Hapus'); ?>
+                                                    <a type="button"class="btn btn-warning" href="kategori/edit/<?= $r['kategori_id'] ?>"><i
+                                                        class="fa fa-edit"></i> Edit</a>    
+                                                    <a href="kategori/delete/<?= $r['kategori_id']; ?>" type="button" class="btn btn-danger"><i
+                                                        class="fa fa-trash"></i> Hapus</a>
                                                 </td>
                                             </tr>
                                         <?php $no++; } ?>

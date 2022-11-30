@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 class model_operator extends Model{
     
     protected $table = 'operator';
-    protected $primary = 'operator_id';
+    protected $primaryKey = 'operator_id';
     protected $protectFields = false;
     protected $useTimeStamps = true;
     protected $createdField = 'created_at';

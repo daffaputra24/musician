@@ -15,7 +15,7 @@ class LoginController extends BaseController
     public function index()
     {
         if ($this->isLoggedIn()) {
-            return redirect()->to(base_url('dashboard'));
+            return redirect()->to('/transaksi/form_transaksi');
         }
 
         $data = [

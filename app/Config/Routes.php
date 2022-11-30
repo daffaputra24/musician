@@ -57,7 +57,21 @@ $routes->get('/transaksi/laporan', 'transaksi::laporan');
 $routes->get('/barang/post', 'barang::post');
 $routes->post('/barang/post', 'barang::handleTambahRuangan');
 $routes->get('/kategori/post', 'kategori::post');
+
+$routes->get('/barang/edit/(:num)', 'barang::editBarang/$1');
+$routes->post('/barang/edit/', 'barang::handleEditBarang');
+$routes->get('/barang/delete/(:num)', 'barang::handleDeleteBarang/$1');
+
 $routes->post('/kategori/post', 'kategori::handleTambahKategori');
+$routes->get('/kategori/edit/(:num)', 'kategori::edit/$1');
+$routes->post('/kategori/edit/', 'kategori::handleEditKategori');
+$routes->get('/kategori/delete/(:num)', 'kategori::handleDeleteKategori/$1');
+
+$routes->get('/operator/edit/(:num)', 'operator::editOperator/$1');
+$routes->post('/operator/edit/', 'operator::handleEditOperator');
+$routes->get('/operator/delete/(:num)', 'operator::handleDeleteOperator/$1');
+
+
 $routes->get('/operator/post', 'operator::post');
 $routes->post('/operator/post', 'operator::handleTambahOperator');
 $routes->post('/transaksi', 'transaksi::handleTambahTransaksi');

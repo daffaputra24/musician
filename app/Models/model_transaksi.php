@@ -20,6 +20,14 @@ class model_transaksi extends Model
         return $query;
     }
 
+    public function daftarBarang()
+    {
+        $builder = $this->db->table('kategori_barang');
+        $builder->join('barang', 'kategori_barang.kategori_id = barang.kategori_id');
+        $query = $builder->get()->getResultArray();
+        return $query;
+    }
+
     function simpan_barang()
     {
         $namaTamu           =  $this->input->post('tamu');
